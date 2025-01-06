@@ -58,41 +58,29 @@ Create a scoreboard Instance With TypeScript
 
 ```typescript
 import * as mc from "@minecraft/server";
-import scoreboard, { CollectionValidator } from "@mbext/scoreboard";
+import { Scoreboard } from "@mbext/scoreboard";
 
-// Define the structure of your data
-interface User {
-    id: string;
-    name: string;
-    age: number;
-    money: number;
-}
+// Define objective names
+type ObjectiveNames = "money" | "level" | "xp";
 
-const validateUser: CollectionValidator<User>  = {
-    id: (value) => value.length > 0,
-    name: (value) => value.length > 0,
-    age: (value) => value > 0,
-    money: (value) => value >= 0
-}
+// Initialize scoreboard with zero-value protection
+const scoreboard = new Scoreboard<ObjectiveNames>(true);
 
-// Initialize the scoreboard
-const scoreboard = new scoreboard<User>("users", mc.world, validateUser);
+// Get a player's score
+const money = scoreboard.get("money", player);
+console.log(`${player.name}'s money: ${money}`);
 
-// Create a new user
-const newUser: User = {
-    id: "user123",
-    name: "John Doe",
-    age: 30,
-    money: 1000,
-};
+// Add points to a score
+scoreboard.add("money", player, amount);
+console.log(`Added ${amount} money to ${player.name}`);
 
-// Insert the new user into the scoreboard
-scoreboard.create(newUser);
+// Remove points from a score
+scoreboard.delete("money", player, amount);
+console.log(`Removed ${amount} money from ${player.name}`);
 
-// Read all users from the scoreboard
-const users = scoreboard.findMany().forEach((user) => {
-    console.log(user);
-});
+// Reset a player's score
+scoreboard.reset("money", player);
+console.log(`Reset ${player.name}'s money`);
 ```
 
 ## License

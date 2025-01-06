@@ -45,7 +45,7 @@ export class Scoreboard<T extends string> {
      * @returns The player's score
      * @throws Error if the objective doesn't exist
      */
-    public get(name: T, player: import("@minecraft/server").Player): Promise<number>;
+    public get(name: T, player: import("@minecraft/server").Player): number;
 
     /**
      * Sets a player's score for an objective
@@ -54,7 +54,7 @@ export class Scoreboard<T extends string> {
      * @param value - The score to set
      * @returns This instance for chaining
      */
-    public set(name: T, player: import("@minecraft/server").Player, value: number): Promise<this>;
+    public set(name: T, player: import("@minecraft/server").Player, value: number): this;
 
     /**
      * Adds to a player's score for an objective
@@ -63,7 +63,7 @@ export class Scoreboard<T extends string> {
      * @param value - The amount to add
      * @returns This instance for chaining
      */
-    public add(name: T, player: import("@minecraft/server").Player, value: number): Promise<this>;
+    public add(name: T, player: import("@minecraft/server").Player, value: number): this;
 
     /**
      * Resets a player's score to zero
@@ -71,7 +71,7 @@ export class Scoreboard<T extends string> {
      * @param player - The target player
      * @returns This instance for chaining
      */
-    public reset(name: T, player: import("@minecraft/server").Player): Promise<this>;
+    public reset(name: T, player: import("@minecraft/server").Player): this;
 
     /**
      * Subtracts from a player's score with minimum value constraint
@@ -80,5 +80,5 @@ export class Scoreboard<T extends string> {
      * @param value - The amount to subtract
      * @returns This instance for chaining
      */
-    public delete(name: T, player: import("@minecraft/server").Player, value: number): Promise<this>;
+    public delete(name: T, player: import("@minecraft/server").Player, value: number): this;
 }
