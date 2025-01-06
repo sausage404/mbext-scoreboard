@@ -1,0 +1,23 @@
+{
+  "name": "@mbext/scoreboard",
+  "version": "1.0.0",
+  "description": "This is scoreboard management for minecraft bedrock deverlopment",
+  "author": "sausage404",
+  "main": "dist/bundle.js",
+  "types": "types/bundle.d.ts",
+  "license": "GNU-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sausage404/mbext-scoreboard.git"
+  },
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch"
+  },
+  "devDependencies": {
+    "@minecraft/server": "^1.15.0-beta.1.21.30-stable",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "ts-loader": "^9.5.1"
+  }
+}
