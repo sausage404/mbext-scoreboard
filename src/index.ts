@@ -11,9 +11,6 @@ export class Scoreboard<T extends string> {
         this.autoObjective = autoObjective;
     }
 
-    private zero(value: number) {
-        return this.unzero ? Math.min(0, value) : value;
-    }
 
     public get(name: T, player: mc.Player) {
         const objective = this.scoreboard.getObjective(name);
@@ -43,12 +40,12 @@ export class Scoreboard<T extends string> {
                 throw new Error(`Objective ${name} does not exist`);
         }
 
-        objective.setScore(player, this.zero(value));
+        objective.setScore(player, value);
         return this;
     }
 
     public add(name: T, player: mc.Player, value: number) {
-        this.set(name, player, this.zero(this.get(name, player) + value));
+        this.set(name, player, this.get(name, player) + value);
         return this;
     }
 
@@ -58,7 +55,7 @@ export class Scoreboard<T extends string> {
     }
 
     public delete(name: T, player: mc.Player, value: number) {
-        const score = Math.max(0, this.get(name, player) - value);
+        const score = Math.min(0, this.get(name, player) - value);
         this.set(name, player, this.unzero ? score : value);
         return this;
     }

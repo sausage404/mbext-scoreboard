@@ -36,13 +36,6 @@ export class Scoreboard<T extends string> {
     constructor(unzero: boolean, autoObjective: boolean);
 
     /**
-     * Applies the unzero constraint to a value if enabled
-     * @param value - The number to process
-     * @returns The processed number, minimum 0 if unzero is true
-     */
-    private zero(value: number): number;
-
-    /**
      * Gets a player's score for an objective
      * @param name - The objective name
      * @param player - The target player
