@@ -24,7 +24,14 @@ export class Scoreboard<T extends string> {
                 throw new Error(`Objective ${name} does not exist`);
         }
 
-        return objective.getScore(player);
+        let score: number;
+        try {
+            score = objective.getScore(player);
+        } catch {
+            score = 0;
+        }
+
+        return score
     }
 
     public set(name: T, player: mc.Player, value: number) {
