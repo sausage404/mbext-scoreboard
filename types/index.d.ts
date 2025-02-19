@@ -21,15 +21,19 @@
 export class Scoreboard<T extends string> {
     /** The Minecraft scoreboard instance */
     public objective: import("@minecraft/server").Scoreboard;
-    
+
     /** Whether to prevent scores from going below zero */
     private readonly unzero: boolean;
 
+    /**  */
+    private readonly autoObjective: boolean;
+
     /**
      * Creates a new Scoreboard instance
-     * @param unzero - If true, prevents scores from going below zero
+     * @param unzero - @default false If true, prevents scores from going below zero
+     * @param autoObjective - @default false If true, automatically creates objectives if they don't exist
      */
-    constructor(unzero: boolean);
+    constructor(unzero: boolean, autoObjective: boolean);
 
     /**
      * Applies the unzero constraint to a value if enabled

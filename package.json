@@ -1,6 +1,6 @@
 {
   "name": "@mbext/scoreboard",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "This is scoreboard management for minecraft bedrock deverlopment",
   "author": "sausage404",
   "main": "dist/bundle.js",
