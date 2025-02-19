@@ -16,7 +16,7 @@ export class Scoreboard<T extends string> {
     public get(name: T, player: mc.Player) {
         const objective = this.scoreboard.getObjective(name);
         if (!objective)
-            throw new Error(`Objective ${name} does not exist.`);
+            this.scoreboard.addObjective(name);
 
         return objective.getScore(player);
     }
@@ -24,7 +24,7 @@ export class Scoreboard<T extends string> {
     public set(name: T, player: mc.Player, value: number) {
         const objective = this.scoreboard.getObjective(name);
         if (!objective)
-            throw new Error(`Objective ${name} does not exist.`);
+            this.scoreboard.addObjective(name);
 
         objective.setScore(player, this.zero(value));
         return this;

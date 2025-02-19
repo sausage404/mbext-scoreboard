@@ -1,10 +1,10 @@
 {
   "name": "@mbext/scoreboard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is scoreboard management for minecraft bedrock deverlopment",
   "author": "sausage404",
   "main": "dist/bundle.js",
-  "types": "types/bundle.d.ts",
+  "types": "types/index.d.ts",
   "license": "GPL-3.0-only-3.0",
   "repository": {
     "type": "git",
